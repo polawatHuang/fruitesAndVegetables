@@ -2,7 +2,7 @@
 import Image from "next/image";
 import imageBg from "../../public/images/flutes-and-vegetables-bg.webp";
 import { fruitesAndVegetables } from "./libs/fruitesAndVegetables";
-import { useState } from "react";
+import React, { useState } from "react";
 
 const MOCK_DATA = fruitesAndVegetables;
 
