@@ -4,6 +4,7 @@ import imageBg from "../public/images/flutes-and-vegetables-bg.webp";
 import { fruitesAndVegetables } from "../libs/fruitesAndVegetables";
 import React, { useState } from "react";
 import { FadeIn, FadeInStagger } from "../libs/FadeIn";
+import { FadeInVisible } from "../libs/FadeIn-visible";
 
 const MOCK_DATA = fruitesAndVegetables;
 export default function Home() {
@@ -47,21 +48,19 @@ export default function Home() {
         fill
         className="object-cover z-[-1] blur"
       />
-      <FadeIn>
-        <div className="relative">
-          <h1 className="protest-riot-regular text-center text-[2rem] font-[600]">
-            Is it <span className="text-orange-500 md:text-7xl">fruits</span> or{" "}
-            <span className="text-green-900 md:text-7xl">vegetable?</span>
-          </h1>
-        </div>
-      </FadeIn>
+      <div className="relative">
+        <h1 className="protest-riot-regular text-center text-[2rem] font-[600]">
+          Is it <span className="text-orange-500 md:text-7xl">fruits</span> or{" "}
+          <span className="text-green-900 md:text-7xl">vegetable?</span>
+        </h1>
+      </div>
 
       <FadeInStagger faster>
         <div className="max-w-[800px] mx-auto flex flex-wrap mt-[60px] gap-6 justify-center">
           {allObject
             ? allObject.map((item) => {
                 return (
-                  <FadeIn key={item.name}>
+                  <FadeInVisible key={item.name}>
                     <button
                       onClick={() => {
                         defineTypeOfObject(item);
@@ -70,7 +69,7 @@ export default function Home() {
                     >
                       {item.name}
                     </button>
-                  </FadeIn>
+                  </FadeInVisible>
                 );
               })
             : null}
